@@ -58,9 +58,10 @@ const deleteTodo = (id) => {
 
 const addTodo = (title) => {
   setTodos(
-    todos.concat([
+    getTodos().concat([
       {
-        id: todos.length > 0 ? todos[todos.length - 1].id + 1 : 1,
+        id:
+          getTodos().length > 0 ? getTodos()[getTodos().length - 1].id + 1 : 1,
         title,
         completed: false,
       },
