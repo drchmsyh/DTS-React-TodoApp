@@ -1,11 +1,13 @@
 /* eslint-disable */
 import TodoItem from "./TodoItem";
 
-const TodoList = ({ todos }) => {
+const TodoList = ({ todos, handleStatus }) => {
   return (
     <>
       {todos.map((todo) => {
-        return <TodoItem key={todo.id} todo={todo} />;
+        return (
+          <TodoItem key={todo.id} todo={todo} handleStatus={handleStatus} />
+        );
       })}
     </>
   );
