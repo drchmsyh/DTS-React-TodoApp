@@ -1,4 +1,4 @@
-const todos = [
+let todos = [
   {
     id: 1,
     title: "Todo 1",
@@ -30,4 +30,10 @@ const changeTodoStatus = (id) => {
   });
 };
 
-export { getTodos, changeTodoStatus };
+const deleteTodo = (id) => {
+  todos = todos.filter((todo) => todo.id !== id);
+
+  return todos;
+};
+
+export { getTodos, changeTodoStatus, deleteTodo };
