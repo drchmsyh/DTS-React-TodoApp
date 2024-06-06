@@ -39,7 +39,7 @@ const sortTodos = () => {
 
 const changeTodoStatus = (id) => {
   setTodos(
-    todos.map((todo) => {
+    getTodos().map((todo) => {
       if (todo.id === id) {
         todo.completed = !todo.completed;
       }
@@ -67,6 +67,8 @@ const addTodo = (title) => {
       },
     ])
   );
+
+  console.log(getTodos()[getTodos().length - 1].id);
 
   return sortTodos();
 };
