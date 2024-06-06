@@ -16,7 +16,7 @@ const TodoForm = ({ handleAdd }) => {
 
   return (
     <form
-      className="flex border-solid border-2 border-blue-400 p-2 rounded-xl m-1 min-w-96"
+      className="flex border-solid border-2 border-blue-400 p-2 rounded-xl m-1 min-w-96 justify-between"
       onSubmit={(e) => {
         handleSubmit(e);
       }}>
@@ -24,7 +24,7 @@ const TodoForm = ({ handleAdd }) => {
         required
         type="text"
         placeholder="Add Todo"
-        className="input border-2 input-bordered input-accent w-full max-w-xs"
+        className="input border-2 input-bordered input-accent w-full "
         value={title}
         onChange={(e) => handleInput(e)}
       />

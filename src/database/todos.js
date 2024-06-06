@@ -32,9 +32,7 @@ const setTodos = (todos) => {
 };
 
 const sortTodos = () => {
-  return getTodos().sort((a, b) =>
-    a.completed === b.completed ? 0 : a.completed ? 1 : -1
-  );
+  return getTodos().sort((a, b) => a.completed - b.completed || b.id - a.id);
 };
 
 const changeTodoStatus = (id) => {
