@@ -14,9 +14,9 @@ const TodoItem = ({ todo, handleStatus, handleDelete }) => {
         )}
       </p>
       <span
-        className="cursor-pointer bg-pink-400 pl-2 pr-2 ml-2"
+        className="cursor-pointer  pl-2 pr-2 ml-2"
         onClick={() => handleDelete(todo.id)}>
-        X
+        ❌
       </span>
     </div>
   );
