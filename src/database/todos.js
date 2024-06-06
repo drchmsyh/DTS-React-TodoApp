@@ -1,3 +1,4 @@
+/* eslint-disable */
 let todos = [
   {
     id: 1,
@@ -17,35 +18,56 @@ let todos = [
 ];
 
 const getTodos = () => {
+  if (!localStorage.getItem("todos")) {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  } else {
+    todos = JSON.parse(localStorage.getItem("todos"));
+  }
+
   return todos;
+};
+
+const setTodos = (todos) => {
+  localStorage.setItem("todos", JSON.stringify(todos));
+};
+
+const sortTodos = () => {
+  return getTodos().sort((a, b) =>
+    a.completed === b.completed ? 0 : a.completed ? 1 : -1
+  );
 };
 
 const changeTodoStatus = (id) => {
-  return todos.map((todo) => {
-    if (todo.id === id) {
-      todo.completed = !todo.completed;
-    }
+  setTodos(
+    todos.map((todo) => {
+      if (todo.id === id) {
+        todo.completed = !todo.completed;
+      }
 
-    return todo;
-  });
+      return todo;
+    })
+  );
+  return sortTodos();
 };
 
 const deleteTodo = (id) => {
-  todos = todos.filter((todo) => todo.id !== id);
+  setTodos(getTodos().filter((todo) => todo.id !== id));
 
-  return todos;
+  return sortTodos();
 };
 
 const addTodo = (title) => {
-  todos = todos.concat([
-    {
-      id: todos.length > 0 ? todos[todos.length - 1].id + 1 : 1,
-      title,
-      completed: false,
-    },
-  ]);
+  setTodos(
+    todos.concat([
+      {
+        id: todos.length > 0 ? todos[todos.length - 1].id + 1 : 1,
+        title,
+        completed: false,
+      },
+    ])
+  );
 
-  return todos;
+  return sortTodos();
 };
 
-export { getTodos, changeTodoStatus, deleteTodo, addTodo };
+export { getTodos, changeTodoStatus, deleteTodo, addTodo, sortTodos };

@@ -5,12 +5,13 @@ import {
   deleteTodo,
   getTodos,
   addTodo,
+  sortTodos,
 } from "./database/todos";
 import TodoList from "./components/TodoList";
 import TodoForm from "./components/TodoForm";
 
 const App = () => {
-  const [todos, setTodos] = useState(getTodos());
+  const [todos, setTodos] = useState(sortTodos());
 
   const handleStatus = (id) => {
     setTodos(changeTodoStatus(id));
