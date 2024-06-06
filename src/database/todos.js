@@ -19,7 +19,7 @@ let todos = [
 
 const getTodos = () => {
   if (!localStorage.getItem("todos")) {
-    localStorage.setItem("todos", JSON.stringify(todos));
+    localStorage.setItem("todos", JSON.stringify([]));
   } else {
     todos = JSON.parse(localStorage.getItem("todos"));
   }
