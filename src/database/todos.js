@@ -36,4 +36,16 @@ const deleteTodo = (id) => {
   return todos;
 };
 
-export { getTodos, changeTodoStatus, deleteTodo };
+const addTodo = (title) => {
+  todos = todos.concat([
+    {
+      id: todos.length > 0 ? todos[todos.length - 1].id + 1 : 1,
+      title,
+      completed: false,
+    },
+  ]);
+
+  return todos;
+};
+
+export { getTodos, changeTodoStatus, deleteTodo, addTodo };
